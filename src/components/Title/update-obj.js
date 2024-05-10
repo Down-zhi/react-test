@@ -13,8 +13,9 @@ export  function MovingDot() {
               //  nextPosition.x = e.clientX;
               // nextPosition.y = e.clientY;            等同于{x :e.clientX,y:e.clientY}
               // setPosition(nextPosition);
-
+   
       }}
+      // setPosition({ ...position, x: 100 })保留之前状态值，改变x
       style={{
         position: 'relative',
         width: '100vw',

@@ -1,7 +1,8 @@
 // 如何使用 useState Hook 添加 state 变量?
 // 要使用新数据更新组件，需要做两件事：1.保留 渲染之间的数据。2.触发React使用新数据渲染组件（重新渲染）。
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import { sculptureList } from './data.js';
+import { letters } from './data.js';
 export function Gallery(){
     const [index,setIndex]=useState(0);//index 是一个 state 变量，setIndex 是对应的 setter 函数。告诉React你想让这个组件记住INDEX
     const [showMore,setShowMore]=useState(false)
@@ -118,7 +119,6 @@ React 根据新的 isSent 值重新渲染组件。 */}
 }
 
 //题目4 移除不必要的 state,你能解释为什么这个 state 变量是不必要的吗？
-
 export function Greet(){
     // const [name, setName] = useState(''); 不需要
     function handleClick(){
@@ -130,3 +130,87 @@ export function Greet(){
     )
 }
 // 因为State 变量仅用于在组件重渲染时保存信息。在单个事件处理函数中，普通变量就足够了。当普通变量运行良好时，不要引入 state 变量。
+
+//----------------------------------------------------------状态管理的state-----------------------------------------------------------------------
+// 使用单个state变量还是多个state变量？如果两个state变量总是一起更新，请考虑将它们合并为一个。
+function useTime() {
+  const [time, setTime] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return time;
+}
+function Clock(props) {
+  return (
+    <h1 style={{ color: props.color }}>
+      {props.time}
+    </h1>
+  );
+}
+export function Timecolor() {
+  const time = useTime();
+  const [color, setColor] = useState('lightcoral');
+  return (
+    <div>
+      <p>
+        Pick a color:{' '}
+        <select value={color} onChange={e => setColor(e.target.value)}>
+          <option value="lightcoral">lightcoral</option>
+          <option value="midnightblue">midnightblue</option>
+          <option value="rebeccapurple">rebeccapurple</option>
+        </select>
+      </p>
+      <Clock color={color} time={time.toLocaleTimeString()} />
+    </div>
+  );
+}
+
+// 如何解决 state 结构中的常见问题？
+//不要将props放入state中，对于选择类型的UI模式，请在state中保存ID或索引而不是对象本身。
+function Letter({letter,onToggle, isSelected}) {  //多选
+  return (
+    <li className={isSelected ? 'selected' : '' }>
+      <label> <input type="checkbox"checked={isSelected}onChange={() => { onToggle(letter.id); }} />
+        {letter.subject}
+      </label>
+    </li>
+  )
+}
+export  function MailClient() {
+  const [selectedIds, setSelectedIds] = useState(
+    new Set()
+  );
+  const selectedCount = selectedIds.size;
+
+  function handleToggle(toggledId) {
+    // Create a copy (to avoid mutation).
+    const nextIds = new Set(selectedIds);
+    if (nextIds.has(toggledId)) {
+      nextIds.delete(toggledId);
+    } else {
+      nextIds.add(toggledId);
+    }
+    setSelectedIds(nextIds);
+  }
+
+  return (
+    <>
+      <h2>Inbox</h2>
+      <ul>
+        {letters.map(letter => (
+          <Letter key={letter.id} letter={letter} isSelected={  selectedIds.has(letter.id)  }
+            onToggle={handleToggle}
+          />
+        ))}
+        <hr />
+          <b>
+            You selected {selectedCount} letters
+          </b>
+      </ul>
+    </>
+  );
+}
+
