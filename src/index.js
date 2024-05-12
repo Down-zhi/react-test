@@ -15,6 +15,11 @@ import { MovingDot,Form1,Scoreboard,Canvas } from './components/Title/update-obj
 import { AddList,CountList } from './components/Title/update-arr';
 import Formanswer ,{Picture,EditProfile} from'./components/Title/State response output'
 import { Accordion1 ,SyncedInputs,FilterableList} from './components/Title/State-share';
+// import { MyComponent ,Messenger} from './components/Title/State-reset';
+import { Messenger } from './components/Title/Reducer-Chat';
+import TaskApp from './components/Reducer&Context/App';
+import { Stoptime ,Send,Sendlast,CatFriends,MyForm,VideoPlayer} from './components/ref&Effect.js/ref';
+import { Showcount } from './components/ref&Effect.js/Effect';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -45,6 +50,10 @@ children.render(
     {/* <MovingDot/><Form1/><Scoreboard/> */}
     {/* <Canvas/> */}
     {/* <br/>
-    <AddList/><CountList/><Formanswer/>*/}<Picture/> <EditProfile/><Timecolor/><Accordion1/><SyncedInputs/><br/><FilterableList/>
+    // <AddList/><CountList/><Formanswer/>*/}
+    {/* <Picture/> <EditProfile/><Timecolor/><Accordion1/><SyncedInputs/><br/><FilterableList/> */}
+    {/* <MyComponent/> */}
+    <br/><Messenger/><TaskApp/>
+    <Send></Send><Stoptime/><Sendlast/><CatFriends/><MyForm/><VideoPlayer/><Showcount/>z
      </React.StrictMode>
 )
