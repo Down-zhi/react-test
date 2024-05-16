@@ -21,6 +21,9 @@ import { Stoptime ,Send,Sendlast,CatFriends,MyForm,VideoPlayer} from './componen
 import { Showcount } from './components/ref&Effect/Effect';
 // import { ChooseChat ,AddTimer} from './components/ref&Effect/Event&Effect';
 import { Online ,Interval ,Pointer} from './components/Title/Hook';
+//Game 
+import Game from './components/game/Game';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -57,6 +60,7 @@ children.render(
     <br/><Messenger/><TaskApp/>
     <Send></Send><Stoptime/><Sendlast/><CatFriends/><MyForm/><VideoPlayer/><Showcount/>
     {/* <ChooseChat/><AddTimer/> */}
-    <Online/><Interval/><Pointer/>
+    {/* <Online/><Interval/><Pointer/> */}
+    <Game/>
      </React.StrictMode>
 )
