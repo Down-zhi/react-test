@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { useSyncExternalStore } from 'react';
+import { useState, useEffect,useSyncExternalStore } from 'react';
 import { Dot } from './data';
 // 什么是自定义 Hook，以及如何编写?当两个组件的逻辑重复了可以从组件中提取自定义 Hook 
 // 比如一个组件在网络连接时显示online 网络断开显示X ，另一个组件在网络连接可以用按钮打印信息而断开按钮被禁用了

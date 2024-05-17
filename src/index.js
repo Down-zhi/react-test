@@ -23,7 +23,14 @@ import { Showcount } from './components/ref&Effect/Effect';
 import { Online ,Interval ,Pointer} from './components/Title/Hook';
 //Game 
 import Game from './components/game/Game';
-
+//React 
+import { AppSend } from './React/useReducer&useContext-send';
+import { Appget } from './React/handhook';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoute } from './React/App';
+import { Appstore } from './React/Redux';
+// import 'antd/dist/antd';  不需要手动导入
+import Appantd from './React/Antd';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -49,6 +56,9 @@ root.render(
 const children=ReactDOM.createRoot(document.getElementById('children'));
 children.render(
   <React.StrictMode>
+      {/* 浏览器路由服务 */}
+    <BrowserRouter> 
+  
     {/* <Buy/><TeaSet/> <ParentComponent/> */}
     {/* <App/><Count/> */}
     {/* <MovingDot/><Form1/><Scoreboard/> */}
@@ -57,10 +67,14 @@ children.render(
     // <AddList/><CountList/><Formanswer/>*/}
     {/* <Picture/> <EditProfile/><Timecolor/><Accordion1/><SyncedInputs/><br/><FilterableList/> */}
     {/* <MyComponent/> */}
-    <br/><Messenger/><TaskApp/>
-    <Send></Send><Stoptime/><Sendlast/><CatFriends/><MyForm/><VideoPlayer/><Showcount/>
+    {/* <br/><Messenger/><TaskApp/>
+    <Send></Send><Stoptime/><Sendlast/><CatFriends/><MyForm/><VideoPlayer/><Showcount/> */}
     {/* <ChooseChat/><AddTimer/> */}
     {/* <Online/><Interval/><Pointer/> */}
-    <Game/>
+    {/* <Game/><AppSend/><Appget/> */}
+{/* <AppRoute/> */}
+{/* <Appstore/> */}
+<Appantd/>
+    </BrowserRouter>  
      </React.StrictMode>
 )
