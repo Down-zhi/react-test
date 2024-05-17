@@ -7,7 +7,6 @@ import { Buy ,TeaSet,Clock } from './components/Title/module';
 // import ParentComponent from './components/Title';//导入Title里index.js的函数
 import ParentComponent from './components/Title/data';
 import './components/Ul/styles.css';
-
 import { Button,Button2 ,Toolbar,Toolbar1,LightSwitch} from './components/Title/Respond';
 import Form, { Gallery ,FeedbackForm,Greet,Timecolor} from './components/Title/State';
 import Ip ,{Counter,Count}from'./components/Title/Reand&sub'
@@ -18,8 +17,20 @@ import { Accordion1 ,SyncedInputs,FilterableList} from './components/Title/State
 // import { MyComponent ,Messenger} from './components/Title/State-reset';
 import { Messenger } from './components/Title/Reducer-Chat';
 import TaskApp from './components/Reducer&Context/App';
-import { Stoptime ,Send,Sendlast,CatFriends,MyForm,VideoPlayer} from './components/ref&Effect.js/ref';
-import { Showcount } from './components/ref&Effect.js/Effect';
+import { Stoptime ,Send,Sendlast,CatFriends,MyForm,VideoPlayer} from './components/ref&Effect/ref';
+import { Showcount } from './components/ref&Effect/Effect';
+// import { ChooseChat ,AddTimer} from './components/ref&Effect/Event&Effect';
+import { Online ,Interval ,Pointer} from './components/Title/Hook';
+//Game 
+import Game from './components/game/Game';
+//React 
+import { AppSend } from './React/useReducer&useContext-send';
+import { Appget } from './React/handhook';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoute } from './React/App';
+import { Appstore } from './React/Redux';
+// import 'antd/dist/antd';  不需要手动导入
+import Appantd from './React/Antd';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -45,6 +56,9 @@ root.render(
 const children=ReactDOM.createRoot(document.getElementById('children'));
 children.render(
   <React.StrictMode>
+      {/* 浏览器路由服务 */}
+    <BrowserRouter> 
+  
     {/* <Buy/><TeaSet/> <ParentComponent/> */}
     {/* <App/><Count/> */}
     {/* <MovingDot/><Form1/><Scoreboard/> */}
@@ -53,7 +67,14 @@ children.render(
     // <AddList/><CountList/><Formanswer/>*/}
     {/* <Picture/> <EditProfile/><Timecolor/><Accordion1/><SyncedInputs/><br/><FilterableList/> */}
     {/* <MyComponent/> */}
-    <br/><Messenger/><TaskApp/>
-    <Send></Send><Stoptime/><Sendlast/><CatFriends/><MyForm/><VideoPlayer/><Showcount/>z
+    {/* <br/><Messenger/><TaskApp/>
+    <Send></Send><Stoptime/><Sendlast/><CatFriends/><MyForm/><VideoPlayer/><Showcount/> */}
+    {/* <ChooseChat/><AddTimer/> */}
+    {/* <Online/><Interval/><Pointer/> */}
+    {/* <Game/><AppSend/><Appget/> */}
+{/* <AppRoute/> */}
+{/* <Appstore/> */}
+<Appantd/>
+    </BrowserRouter>  
      </React.StrictMode>
 )

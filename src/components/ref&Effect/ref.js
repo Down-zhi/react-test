@@ -1,4 +1,5 @@
 import { useRef,useState ,forwardRef} from "react";
+import img from "../Title/th(2).jpg"
 // 如何向组件添加 ref
 export default function Counter() {
     let ref = useRef(0);        //你想要引用的初始值作为唯一参数。例如，这里的 ref 引用的值是“0”
@@ -152,7 +153,8 @@ export function CatFriends() {
             </li>
             <li>
               <img
-                src="/th (2).jpg"
+                src={img}
+                // src='../Title/th(2).jpg'
                 alt="Maru"
                 ref={secondCatRef}
               />
