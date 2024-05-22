@@ -1,0 +1,28 @@
+
+
+.statistics {
+  margin-bottom: 20px;
+}
+
+.analysis {
+  margin-bottom: 20px;
+
+  .date {
+    display: flex;
+    justify-content: flex-end;
+
+    &-option {
+      margin-left: 20px;
+    }
+  }
+
+  .block {
+    margin: 16px 0;
+  }
+
+  .title {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+}

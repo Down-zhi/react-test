@@ -1,14 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Space, Button, Modal, Table, Tag } from 'antd';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 const { confirm } = Modal;
+
+
 
 const columns = [
     {
         title: 'ID',
         dataIndex: 'name',
         key: 'name',
-        render: (text) => <a>{text}</a>,
+        render: (text) => <a>{text.toUpperCase()}</a>,
     },
     {
         title: '标题',
@@ -24,9 +26,9 @@ const columns = [
         title: 'Tags',
         key: 'tags',
         dataIndex: 'tags',
-        render: (_, { tags }) => (
+        render: (sss, { tags },index) => (
             <>
-                {tags.map((tag) => {
+                {sss.map((tag) => {
                     let color = tag.length > 5 ? 'geekblue' : 'green';
                     if (tag === 'loser') {
                         color = 'volcano';
@@ -69,6 +71,7 @@ const showConfirm = () => {
 const data = [
     {
         id: '1',
+        key:1,
         name: 'John Brown',
         age: 32,
         address: 'New York No. 1 Lake Park',
@@ -76,6 +79,7 @@ const data = [
     },
     {
         id: '2',
+        key:2,
         name: 'Jim Green',
         age: 42,
         address: 'London No. 1 Lake Park',
@@ -83,13 +87,25 @@ const data = [
     },
     {
         id: '3',
+        key:3,
         name: 'Joe Black',
         age: 32,
         address: 'Sidney No. 1 Lake Park',
         tags: ['cool', 'teacher'],
     },
 ];
+
+
 const Goods = () => {
+    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+    const onSelectChange = (newSelectedRowKeys) => {
+        console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+        setSelectedRowKeys(newSelectedRowKeys);
+      };
+      const rowSelection = {
+        selectedRowKeys,
+        onChange: onSelectChange,
+      };
     // useEffect(() => {
     //     return () => {
     //         axios
@@ -97,7 +113,7 @@ const Goods = () => {
     // }, [input]);
 
     return (
-        <Table columns={columns} dataSource={data} />
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
     )
 }
 export default Goods;

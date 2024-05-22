@@ -24,7 +24,7 @@ const Login = () => {
                 paddingRight: "100px",
                 paddingTop: "50px"
             }}>
-                <Form name="basic" labelCol={{ span: 8, }}
+                <Form name="basic" labelCol={{ span: 4, }}
                     wrapperCol={{ span: 16, }}
                     initialValues={{ remember: true, }}
                     onFinish={onFinish}
@@ -33,7 +33,7 @@ const Login = () => {
                 >
                     <Form.Item
                         label="Username"
-                        name="username"
+                        name={['obj','name']}
                         rules={[
                             {
                                 required: true,

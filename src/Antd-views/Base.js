@@ -28,8 +28,6 @@ const items = [
     // getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
 ];
 
-
-
 const Base = () => {
     const navigate = useNavigate()
     const [collapsed, setCollapsed] = useState(false);
