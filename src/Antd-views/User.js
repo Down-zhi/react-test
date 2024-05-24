@@ -45,22 +45,22 @@ function User() {
    const handleConfirm = async ()=>{
       const [fromValues]=await (form.validateFields())
     }
-    const handleConfirm = async () => {
-      const [formValues] = await to(form.validateFields());    //表单的所有校验规则，获取验证后的表单值
-      if (!formValues) return;                                //空直接返回不执行后面
-      const [res] = await to(
-        createUser({
-          ...formValues,
-          download_limit: GRADE_TYPE[formValues.grade as Grade].limit,      //下载限制规定为用户等级的限制
-        })
-      );
-      if (res) {
-        console.log('成功');
-        onSuccess();
-      } else {
-            alert('错误')
-      }
-    };
+    // const handleConfirm = async () => {
+    //   const [formValues] = await to(form.validateFields());    //表单的所有校验规则，获取验证后的表单值
+    //   if (!formValues) return;                                //空直接返回不执行后面
+    //   const [res] = await to(
+    //     createUser({
+    //       ...formValues,
+    //       download_limit: GRADE_TYPE[formValues.grade as Grade].limit,      //下载限制规定为用户等级的限制
+    //     })
+    //   );
+    //   if (res) {
+    //     console.log('成功');
+    //     onSuccess();
+    //   } else {
+    //         alert('错误')
+    //   }
+    // };
 
     return ( //在对话框中加入表单
     <Modal
